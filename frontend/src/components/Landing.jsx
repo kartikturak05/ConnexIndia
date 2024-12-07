@@ -105,7 +105,7 @@ function Landing() {
                     </div>
                     <div style={{ padding: '20px' }}>
                         <FullSizeModel
-                            src="/models/watch.glb"
+                            src="/models/phoenix_bird.glb"
                             width="600px"
                             height="350px"
                         />
