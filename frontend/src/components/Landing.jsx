@@ -105,7 +105,7 @@ function Landing() {
                     </div>
                     <div style={{ padding: '20px' }}>
                         <FullSizeModel
-                            src="/models/ring.glb"
+                            src="/models/watch.glb"
                             width="600px"
                             height="350px"
                         />
