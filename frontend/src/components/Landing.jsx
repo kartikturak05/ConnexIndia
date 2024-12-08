@@ -44,7 +44,7 @@ const FullSizeModel = ({ src, width = '600px', height = '350px' }) => {
                 // Set camera position based on the model's bounding box
                 // This ensures the model is always visible when the scene is loaded
                 const maxSize = Math.max(size.x, size.y, size.z);
-                camera.position.set(0, 0, maxSize * 2.5);  // Zoomed in enough to fit the model within the view
+                camera.position.set(0, 0, maxSize * 2);  // Zoomed in enough to fit the model within the view
 
             },
             (xhr) => {
@@ -64,6 +64,13 @@ const FullSizeModel = ({ src, width = '600px', height = '350px' }) => {
         // Animation Loop (no rotation)
         const animate = () => {
             requestAnimationFrame(animate);
+            
+            if (model) {
+                model.rotation.y += 0.01; // Adjust speed by changing increment value
+            }
+
+            controls.update();
+
             renderer.render(scene, camera);
         };
         animate();
@@ -105,7 +112,7 @@ function Landing() {
                     </div>
                     <div style={{ padding: '20px' }}>
                         <FullSizeModel
-                            src="/models/phoenix_bird.glb"
+                            src="/models/watch.glb"
                             width="600px"
                             height="350px"
                         />
