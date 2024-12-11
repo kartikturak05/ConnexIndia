@@ -1,15 +1,30 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
-import NavBar from './components/NavBar'
 import Landing from './components/Landing'
 import Banner from './components/Banner'
+import Nav from './components/Nav';
 
 function App() {
+  useEffect(() => {
+    // Function to handle window resize
+    const handleResize = () => {
+      window.location.reload(); // Reload the page on window resize
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <NavBar/>
+      <Nav/>
       <Landing/>
       <Banner/>
     </>
